@@ -33,8 +33,7 @@ sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/confi
 
 
 ##修改概述内容
-wget -O ./feeds/xiangfeidexiaohuo/patch/autocore/files/x86/index.htm https://raw.githubusercontent.com/HiJwm/MySettings/lean/index.htm
-
+wget -O ./feeds/xiangfeidexiaohuo/patch/autocore/files/x86/index.htm https://raw.githubusercontent.com/HiJwm/MySettings/main/lean/index.htm
 ##FQ全部调到VPN菜单
 sed -i 's/services/vpn/g' package/feeds/xiangfeidexiaohuo/luci-app-ssr-plus/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/feeds/xiangfeidexiaohuo/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/*.lua
