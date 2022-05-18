@@ -65,9 +65,9 @@ jobs:
         cp -f ../diy/lean/lean2.sh ./        
         chmod +x ./lean2.sh && ./lean2.sh       
         echo 'https://static.adguard.com/adguardhome/release/AdGuardHome_linux_${Arch}.tar.gz' > feeds/xiangfeidexiaohuo/luci-app-adguardhome/root/usr/share/AdGuardHome/links.txt
-        sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION='Lite $(date +%Y%m%d) By YaoDao'/g" package/lean/default-settings/files/zzz-default-settings
+        sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION='$(date +%Y%m%d)'/g" package/lean/default-settings/files/zzz-default-settings
         
-    - name: Configuration Customization - Build_x86_515_lite
+    - name: Configuration Customization - Build_x86_515_Lean
       env:
         CONFIG_FILE: './configs/x86-lite/x86_515_lite.config'
       run: |
@@ -147,11 +147,17 @@ jobs:
         name: ${{matrix.target}}-${{ env.FILE_DATE }}-config
         path: openwrt/.config
         
+    - name: Upload Packages
+      uses: actions/upload-artifact@main
+      with:
+        name: ${{matrix.target}}-${{ env.FILE_DATE }}-Packages
+        path: openwrt/bin/packages
+    
     - name: Generate Tag & Release Name
       id: generate_name
       run: |
-        release_tag=${{ env.FILE_DATE }}_${{matrix.target}}
-        release_name=${{ env.date1 }}_${{matrix.target}}
+        release_tag="${{ env.FILE_DATE }}_${{matrix.target}}"
+        release_name="${{ env.date1 }}_${{matrix.target}}"
         echo "##[set-output name=release_name;]$release_name"
         echo "##[set-output name=release_tag;]$release_tag"        
 
