@@ -150,8 +150,8 @@ jobs:
     - name: Generate Tag & Release Name
       id: generate_name
       run: |
-        release_tag: ${{ env.FILE_DATE }}_${{matrix.target}}
-        release_name: ${{ env.date1 }} ${{matrix.target}}
+        release_tag=${{ env.FILE_DATE }}_${{matrix.target}}
+        release_name=${{ env.date1 }}_${{matrix.target}}
         echo "##[set-output name=release_name;]$release_name"
         echo "##[set-output name=release_tag;]$release_tag"        
 
