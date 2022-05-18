@@ -158,7 +158,7 @@ jobs:
     - name: Create Release & Upload
       uses: ncipollo/release-action@v1
       with:
-        artifacts: ${{ env.FIRMWARE }}
+        artifacts: ${{ env.FIRMWARE }}/*
         name: ${{ steps.generate_name.outputs.release_name }}
         tag: ${{ steps.generate_name.outputs.release_tag }}
         token: ${{ secrets.REPO_TOKEN }}
@@ -169,5 +169,5 @@ jobs:
         echo "请自动忽略META-INF文件夹。" > 忽略META-INF文件夹.txt
         jar cf ${{matrix.target}}-${{ env.date1 }}.zip *
         cd ..        
-        python diy/aliupload.py --token "${{ secrets.ALIYUN_TOKEN }}" --uploadFloder "OpenWrt/X86-Lite/5.15" --file "X86_Out/X86-Lite-5.15-$(date +%Y%m%d).zip"  
+        python diy/aliupload.py --token "${{ secrets.ALIYUN_TOKEN }}" --uploadFloder "OpenWrt/X86-Lite/5.15" --file "Myfile/X86-Lite-5.15-$(date +%Y%m%d).zip"  
                 
