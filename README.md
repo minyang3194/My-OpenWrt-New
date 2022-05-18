@@ -21,7 +21,7 @@
 
 - [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)
 - [Lienol's OpenWrt]( https://github.com/Lienol/openwrt)
-- [xiangfeidexiaohuo]([https://github.com/kenzok8/openwrt-packages](https://github.com/xiangfeidexiaohuo/OpenWrt_Build))
+- [xiangfeidexiaohuo](https://github.com/kenzok8/openwrt-packages](https://github.com/xiangfeidexiaohuo/OpenWrt_Build)
 - [P3TERX](https://github.com/P3TERX/Actions-OpenWrt)
   
 
