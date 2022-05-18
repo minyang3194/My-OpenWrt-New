@@ -12,6 +12,11 @@ on:
 #  watch:
 #    types: [started]
 
+env:
+  REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+  ALIYUN_TOKEN: ${{ secrets.ALIYUN_TOKEN }}
+  
+
 jobs:
   Build_x86_Lienol_510:
     runs-on: ubuntu-20.04
@@ -47,8 +52,8 @@ jobs:
         
     - name: Clone source code
       env: 
-        REPO_URL: https://github.com/coolsnowwolf/lede
-        REPO_BRANCH: master
+        REPO_URL: https://github.com/Lienol/openwrt
+        REPO_BRANCH: 22.03
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
@@ -176,4 +181,22 @@ jobs:
         jar cf ${{matrix.target}}-${{ env.date1 }}.zip *
         cd ..        
         python diy/aliupload.py --token "${{ secrets.ALIYUN_TOKEN }}" --uploadFloder "OpenWrt/X86-Lite/5.15" --file "X86_Out/X86-Lite-5.15-$(date +%Y%m%d).zip"  
-                
+    
+    - name: 删除工作流、释放Actions空间
+      if: env.REPO_TOKEN
+      uses: Mattraks/delete-workflow-runs@main
+      with:
+        token: ${{ secrets.REPO_TOKEN }}
+        repository: ${{ github.repository }}
+        keep_minimum_runs: 3
+        retain_days: 1
+    
+    - name: 删除旧版本releases
+      if: env.REPO_TOKEN
+      uses: dev-drprasad/delete-older-releases@master
+      with:
+        repo: ${{ github.repository }}
+        keep_latest: 3
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}            
