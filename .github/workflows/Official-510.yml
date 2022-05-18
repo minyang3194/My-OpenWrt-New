@@ -69,7 +69,7 @@ jobs:
         
     - name: Configuration Customization - Build_x86_Official_510
       env:
-        CONFIG_FILE: './configs/x86/official.config'
+        CONFIG_FILE: './configs/official.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         cd openwrt && make defconfig
