@@ -103,7 +103,6 @@ jobs:
     #  run: |
     #    rm -rf ./Myfile
     #    mkdir -p ./Myfile/
-    #    
     #    getmd5()
     #    {
     #    md5sum=`md5sum $1`
