@@ -169,7 +169,7 @@ jobs:
     - name: Create Release & Upload
       uses: ncipollo/release-action@v1
       with:
-        artifacts: ${{ env.FIRMWARE }}
+        artifacts: ${{ env.FIRMWARE }}/*
         name: ${{ steps.generate_name.outputs.release_name }}
         tag: ${{ steps.generate_name.outputs.release_tag }}
         token: ${{ secrets.REPO_TOKEN }}
