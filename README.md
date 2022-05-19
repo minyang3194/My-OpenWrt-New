@@ -1,4 +1,6 @@
 ﻿### AutoBuild-OpenWrt
+ ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=HiJwm&show_icons=true&theme=radical)
+ 
  [1]: https://img.shields.io/badge/license-MIT-brightgreen.svg
  [2]: /LICENSE
 
