@@ -150,10 +150,10 @@ jobs:
     - name: Generate Tag & Release Name
       id: generate_name
       run: |
-        release_tag: ${{ env.FILE_DATE }}_${{matrix.target}}
-        release_name: ${{ env.date1 }} ${{matrix.target}}
+        release_tag="${{ env.FILE_DATE }}_${{matrix.target}}"
+        release_name="${{ env.date1 }}_${{matrix.target}}"
         echo "##[set-output name=release_name;]$release_name"
-        echo "##[set-output name=release_tag;]$release_tag"        
+        echo "##[set-output name=release_tag;]$release_tag"         
 
     - name: Create Release & Upload
       uses: ncipollo/release-action@v1
@@ -167,7 +167,23 @@ jobs:
       run: |  
         cd Myfile
         echo "请自动忽略META-INF文件夹。" > 忽略META-INF文件夹.txt
-        jar cf ${{matrix.target}}-${{ env.date1 }}.zip *
+        jar cf official-op.zip *
         cd ..        
-        python diy/aliupload.py --token "${{ secrets.ALIYUN_TOKEN }}" --uploadFloder "OpenWrt/X86-Lite/5.15" --file "Myfile/X86-Lite-5.15-$(date +%Y%m%d).zip"  
-                
+        python diy/aliupload.py --token "${{ secrets.ALIYUN_TOKEN }}" --uploadFloder "OpenWrt/X86" --file "Myfile/official-op.zip"  
+    
+    - name: 删除工作流、释放Actions空间
+      uses: Mattraks/delete-workflow-runs@main
+      with:
+        token: ${{ secrets.REPO_TOKEN }}
+        repository: ${{ github.repository }}
+        keep_minimum_runs: 3
+        retain_days: 1
+    
+    - name: 删除旧版本releases
+      uses: dev-drprasad/delete-older-releases@master
+      with:
+        repo: ${{ github.repository }}
+        keep_latest: 3
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}            
