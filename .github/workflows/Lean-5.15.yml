@@ -138,7 +138,7 @@ jobs:
     - name: Upload Firmwares
       uses: actions/upload-artifact@main
       with:
-        name: ${{matrix.target}}_OpenWrt_firmware_${{ env.FILE_DATE }}
+        name: ${{matrix.target}}_OpenWrt_${{ env.FILE_DATE }}-firmware
         path: ${{ env.FIRMWARE }}
 
     - name: Upload config
