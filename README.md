@@ -34,4 +34,4 @@
 
 ## 授权License
 
-[MIT](https://github.com/P3TERX/Actions-OpenWrt/blob/main/LICENSE) © [**P3TERX**](https://p3terx.com) And © [**HiJwm**](https://github.com/HiJwm/My-OpenWrt-New)
+[MIT]© [**HiJwm**](https://github.com/HiJwm/My-OpenWrt-New)
