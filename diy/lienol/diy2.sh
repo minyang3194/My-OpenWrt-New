@@ -28,6 +28,8 @@ sed -i 's/bootstrap/argon/g' feeds/luci/collections/luci/Makefile
 #sed -i 's/"admin", "store"/"admin", "services", "store"/g' feeds/smpackage/luci-app-store/luasrc/controller/store.lua
 #sed -i 's/admin\/store/admin\/services\/store/g' feeds/smpackage/luci-app-store/API.md
 
+##加入作者信息
+sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWrt-$(date +%Y%m%d)'/g"  package/base-files/files/etc/openwrt_release
 
 # 修改openwrt登陆地址,把下面的192.168.2.1修改成你想要的就可以了，其他的不要动
 sed -i 's/192.168.1.1/192.168.100.103/g' package/base-files/files/bin/config_generate
