@@ -117,7 +117,6 @@ jobs:
     #	 cp -a $rom2 ./Myfile/openwrt-x86-64-generic-squashfs-combined-(date +%Y%m%d)_${md5}.img.gz
                
     - name: Organize files 整理文件
-
       run: |
         mkdir Myfile
         mv -f openwrt/bin/targets/*/*/{*combined*,*sysupgrade*} ./Myfile/ 2>/dev/null || true
