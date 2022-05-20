@@ -122,7 +122,6 @@ jobs:
     #	 cp -a $rom2 ./Myfile/openwrt-x86-64-generic-squashfs-combined-(date +%Y%m%d)_${md5}.img.gz
                
     - name: Organize files 整理文件
-
       run: |
         mkdir Myfile
         mv -f openwrt/bin/targets/*/*/{*combined*,*sysupgrade*} ./Myfile/ 2>/dev/null || true
@@ -141,24 +140,28 @@ jobs:
     
     
     - name: Upload Firmwares
+      continue-on-error: true
       uses: actions/upload-artifact@main
       with:
         name: ${{matrix.target}}_OpenWrt_${{ env.FILE_DATE }}-firmware
         path: ${{ env.FIRMWARE }}
 
     - name: Upload config
+      continue-on-error: true
       uses: actions/upload-artifact@main
       with:
         name: ${{matrix.target}}-${{ env.FILE_DATE }}-config
         path: openwrt/.config
         
     - name: Upload Packages
+      continue-on-error: true
       uses: actions/upload-artifact@main
       with:
         name: ${{matrix.target}}-${{ env.FILE_DATE }}-Packages
         path: openwrt/bin/packages
     
     - name: Generate Tag & Release Name
+      continue-on-error: true
       id: generate_name
       run: |
         release_tag="${{ env.FILE_DATE }}_${{matrix.target}}"
@@ -167,6 +170,7 @@ jobs:
         echo "##[set-output name=release_tag;]$release_tag"        
 
     - name: Create Release & Upload
+      continue-on-error: true
       uses: ncipollo/release-action@v1
       with:
         artifacts: ${{ env.FIRMWARE }}/*
@@ -175,14 +179,16 @@ jobs:
         token: ${{ secrets.REPO_TOKEN }}
                          
     - name: Upload Aliyun
+      continue-on-error: true
       run: |  
         cd Myfile
         echo "请自动忽略META-INF文件夹。" > 忽略META-INF文件夹.txt
-        jar cf lienol-OpenWrt-${{ env.date1 }}.zip *
+        jar cf lienol-OpenWrt-${{ FILE_DATE }}.zip *
         cd ..        
-        python diy/aliupload.py --token "${{ secrets.ALIYUN_TOKEN }}" --uploadFloder "OpenWrt/X86" --file "Myfile/lienol-OpenWrt-${{ env.date1 }}.zip"  
+        python diy/aliupload.py --token "${{ secrets.ALIYUN_TOKEN }}" --uploadFloder "OpenWrt/X86" --file "Myfile/lienol-OpenWrt-${{ FILE_DATE }}.zip"  
     
     - name: 删除工作流、释放Actions空间
+      continue-on-error: true
       if: env.REPO_TOKEN
       uses: Mattraks/delete-workflow-runs@main
       with:
@@ -192,6 +198,7 @@ jobs:
         retain_days: 1
     
     - name: 删除旧版本releases
+      continue-on-error: true
       if: env.REPO_TOKEN
       uses: dev-drprasad/delete-older-releases@master
       with:
