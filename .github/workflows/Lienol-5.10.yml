@@ -89,7 +89,7 @@ jobs:
     - name: Build firmware
       working-directory: ./openwrt
       run: |
-        make -j$(nproc) V=s
+        make -j$(nproc) || make -j1 || make -j1 V=s
 
     - name: preparation before release发布前准备
       run: |
