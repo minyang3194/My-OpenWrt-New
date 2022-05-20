@@ -12,6 +12,8 @@ on:
 #  watch:
 #    types: [started]
 
+env:
+  TZ: Asia/Shanghai
 jobs:
   Build_x86_Official_510:
     runs-on: ubuntu-20.04
