@@ -32,7 +32,7 @@ mv package/lucimod/* feeds/luci/modules/luci-base/htdocs/luci-static/resources/i
 ##加入作者信息
 sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWrt '/g" package/lean/default-settings/files/zzz-default-settings
 #sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION='$(date +%Y%m%d) '/g" package/lean/default-settings/files/zzz-default-settings  #默认openwrt版本号目前R22.5.5 
-sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWrt-$(date +%Y%m%d) By HiJwm @'/g" package/lean/default-settings/files/zzz-default-settings 
+sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWrt-$(date +%Y%m%d) by HiJwm @'/g" package/lean/default-settings/files/zzz-default-settings #编译文件中添加，这个就无效了
 ##更改主机名
 sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
 
