@@ -173,9 +173,9 @@ jobs:
       run: |  
         cd Myfile
         echo "请自动忽略META-INF文件夹。" > 忽略META-INF文件夹.txt
-        jar cf lean-op.zip *
+        jar cf lean-OpenWrt-${{ env.date1 }}.zip *
         cd ..        
-        python diy/aliupload.py --token "${{ secrets.ALIYUN_TOKEN }}" --uploadFloder "OpenWrt/X86" --file "Myfile/lean-op.zip"  
+        python diy/aliupload.py --token "${{ secrets.ALIYUN_TOKEN }}" --uploadFloder "OpenWrt/X86" --file "Myfile/lean-OpenWrt-${{ env.date1 }}.zip"  
     
     - name: 删除工作流、释放Actions空间
       uses: Mattraks/delete-workflow-runs@main
