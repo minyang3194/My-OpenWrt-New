@@ -34,7 +34,7 @@ mv package/lucimod/* feeds/luci/modules/luci-base/htdocs/luci-static/resources/i
 sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
 
 ##加入作者信息
-#sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION='$(date +%Y%m%d) By HiJwm'/g" package/base-files/files/etc/openwrt_release #默认为openwrt版本号，无个人信息
+#sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION='$(date +%Y%m%d) by HiJwm'/g" package/base-files/files/etc/openwrt_release #默认为openwrt版本号，无个人信息
 sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWrt-$(date +%Y%m%d) by HiJwm'/g"  package/base-files/files/etc/openwrt_release #编译文件中添加，这个就无效了
 
 ##
@@ -53,7 +53,7 @@ rm -rf package/feeds/luci/luci-app-dockerman
 ln -s ../../../feeds/xiangfeidexiaohuo/lisaac/luci-app-dockerman package/feeds/luci/luci-app-dockerman
 
 rm -rf feeds/xiangfeidexiaohuo/patch/autocore
-svn export https://github.com/Lienol/openwrt-package/branches/other/lean/autocore feeds/xiangfeidexiaohuo/patch/autocore #替换autocorelean无作者信息
+svn export https://github.com/Lienol/openwrt-package/branches/other/lean/autocore feeds/xiangfeidexiaohuo/patch/autocore
 
 rm -rf feeds/packages/utils/coremark
 svn export https://github.com/coolsnowwolf/packages/trunk/utils/coremark feeds/packages/utils/coremark
