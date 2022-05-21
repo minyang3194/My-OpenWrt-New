@@ -53,10 +53,10 @@ rm -rf package/feeds/luci/luci-app-dockerman
 ln -s ../../../feeds/xiangfeidexiaohuo/lisaac/luci-app-dockerman package/feeds/luci/luci-app-dockerman
 
 rm -rf feeds/xiangfeidexiaohuo/patch/autocore
-#svn export https://github.com/Lienol/openwrt-package/branches/other/lean/autocore feeds/xiangfeidexiaohuo/patch/autocore #失败
+svn export https://github.com/Lienol/openwrt-package/branches/other/lean/autocore feeds/xiangfeidexiaohuo/patch/autocore 
 
-#rm -rf feeds/packages/utils/coremark #编译失败
-#svn export https://github.com/coolsnowwolf/packages/trunk/utils/coremark feeds/packages/utils/coremark #失败
+rm -rf feeds/packages/utils/coremark 
+svn export https://github.com/coolsnowwolf/packages/trunk/utils/coremark feeds/packages/utils/coremark 
 
 
 ##FQ全部调到VPN菜单
