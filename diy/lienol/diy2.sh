@@ -59,6 +59,9 @@ rm -rf feeds/packages/utils/coremark
 svn export https://github.com/coolsnowwolf/packages/trunk/utils/coremark feeds/packages/utils/coremark
 
 
+##删除lienol自带argon主题
+rm -rf feeds/luci/themes/luci-theme-argon
+
 ##FQ全部调到VPN菜单
 sed -i 's/services/vpn/g' package/feeds/xiangfeidexiaohuo/luci-app-ssr-plus/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/feeds/xiangfeidexiaohuo/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/*.lua
