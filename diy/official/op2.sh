@@ -58,7 +58,8 @@ svn export https://github.com/Lienol/openwrt-package/branches/other/lean/autocor
 rm -rf feeds/packages/utils/coremark 
 svn export https://github.com/coolsnowwolf/packages/trunk/utils/coremark feeds/packages/utils/coremark 
 
-
+##添加adbybyplus插件
+svn export https://github.com/Lienol/openwrt-package/branches/other/lean/luci-app-adbyby-plus
 
 ##FQ全部调到VPN菜单
 sed -i 's/services/vpn/g' package/feeds/xiangfeidexiaohuo/luci-app-ssr-plus/luasrc/controller/*.lua
