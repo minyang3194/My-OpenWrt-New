@@ -15,7 +15,7 @@ on:
 env:
   TZ: Asia/Shanghai
 jobs:
-  Build_x86_Official_510:
+  Build_x86_Official_504:
     runs-on: ubuntu-20.04
     name: Build ${{matrix.target}}
     strategy:
