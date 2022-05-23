@@ -39,9 +39,8 @@ sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/confi
 
 ##修改autocore
 rm -rf feeds/xiangfeidexiaohuo/patch/autocore
-rm -rf package/lean/autocore
 svn export https://github.com/HiJwm/MySettings/main/lean/myautocore package/myautocore
-##修改概述内容
+##修改概述内容 上述已经修改，本条无意义
 #wget -O ./feeds/xiangfeidexiaohuo/patch/autocore/files/x86/index.htm https://raw.githubusercontent.com/HiJwm/MySettings/main/lean/index.htm
 
 
