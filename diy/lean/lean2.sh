@@ -44,6 +44,12 @@ svn export https://github.com/HiJwm/MySettings/trunk/lean/myautocore feeds/xiang
 ##修改概述内容 上述已经修改，本条无意义
 #wget -O ./feeds/xiangfeidexiaohuo/patch/autocore/files/x86/index.htm https://raw.githubusercontent.com/HiJwm/MySettings/main/lean/index.htm
 
+##更换adguardhome为sirboy源
+rm -rf ./feeds/xiangfeidexiaohuo/luci-app-adguardhome
+svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome ./package/luci-app-adguardhome
+chmod -R 755 ./package/luci-app-adguardhome/*
+svn co https://github.com/sirpdboy/sirpdboy-package/trunk/adguardhome ./package/adguardhome
+chmod -R 755 ./package/adguardhome/*
 
 ##FQ全部调到VPN菜单
 sed -i 's/services/vpn/g' package/feeds/xiangfeidexiaohuo/luci-app-ssr-plus/luasrc/controller/*.lua
