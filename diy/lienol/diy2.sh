@@ -25,9 +25,6 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-nginx/Makefile
 
 ##替换theme icons
-#wget -O ./feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://github.com/HiJwm/MySettings/raw/main/BackGround/2.jpg
-#svn co https://github.com/xylz0928/luci-mod/trunk/feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons ./package/lucimod
-#mv package/lucimod/* feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons/
 wget -O ./package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://github.com/HiJwm/MySettings/raw/main/BackGround/2.jpg
 svn co https://github.com/xylz0928/luci-mod/trunk/feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons ./package/lucimod
 mv package/lucimod/* feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons/
@@ -64,7 +61,6 @@ svn export https://github.com/coolsnowwolf/packages/trunk/utils/coremark feeds/p
 ##删除lienol自带argon主题
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf ./feeds/xiangfeidexiaohuo/jerrykuku/luci-theme-argon
-#svn export https://github.com/jerrykuku/luci-theme-argon feeds/luci/themes/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-theme-argon.git ./package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config.git ./package/luci-app-argon-config
 
