@@ -62,6 +62,13 @@ svn export https://github.com/coolsnowwolf/packages/trunk/utils/coremark feeds/p
 ##删除lienol自带argon主题
 rm -rf feeds/luci/themes/luci-theme-argon
 
+##更换adguardhome为sirboy源
+rm -rf ./feeds/xiangfeidexiaohuo/luci-app-adguardhome
+svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome ./package/luci-app-adguardhome
+chmod -R 755 ./package/luci-app-adguardhome/*
+svn co https://github.com/sirpdboy/sirpdboy-package/trunk/adguardhome ./package/adguardhome
+chmod -R 755 ./package/adguardhome/*
+
 ##FQ全部调到VPN菜单
 sed -i 's/services/vpn/g' package/feeds/xiangfeidexiaohuo/luci-app-ssr-plus/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/feeds/xiangfeidexiaohuo/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/*.lua
