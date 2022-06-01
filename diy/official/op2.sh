@@ -7,10 +7,9 @@
 #设置默认时区
 uci set system.@system[0].timezone=CST-8
 uci set system.@system[0].zonename=Asia/Shanghai
-uci commit system
 
-uci set fstab.@global[0].anon_mount=1
-uci commit fstab
+
+
 
 # Docker v20.10.15
 rm -rf feeds/packages/utils/docker
