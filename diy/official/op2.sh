@@ -5,10 +5,15 @@
 #=================================================             
 
 #设置默认时区
+touch /etc/crontabs/root
+uci set luci.main.lang=zh_cn
+uci commit luci
 uci set system.@system[0].timezone=CST-8
 uci set system.@system[0].zonename=Asia/Shanghai
-
-
+uci commit system
+uci set fstab.@global[0].anon_mount=1
+uci commit fstab
+ln -sf /sbin/ip /usr/bin/ip
 
 
 # Docker v20.10.15
