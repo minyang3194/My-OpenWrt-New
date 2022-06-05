@@ -119,7 +119,7 @@ jobs:
     - name: Organize files 整理文件
       run: |
         mkdir Myfile
-        for img in `find openwrt/bin/targets/*/*/* -name *.img.gz -or  -name *sysupgrade.bin`; do
+        for img in `find openwrt/bin/targets/*/*/* -name *.img.gz -or  -name *.sysupgrade.bin`; do
           mv -f $img Myfile
         done
         #mv -f openwrt/bin/targets/*/*/{*combined*,*sysupgrade*} ./Myfile/ 2>/dev/null || true
