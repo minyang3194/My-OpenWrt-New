@@ -20,11 +20,11 @@ sed -i 's/192.168.1.1/192.168.100.101/g' package/base-files/files/bin/config_gen
 
 ##取消bootstrap为默认主题
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
-sed -i 's/luci-theme-bootstrap/luci-theme-argon -18.06/g' feeds/luci/collections/luci/Makefile
-sed -i 's/luci-theme-bootstrap/luci-theme-argon -18.06/g' feeds/luci/collections/luci-nginx/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-nginx/Makefile
 
 ##替换theme icons
-wget -O ./feeds/mypackages/luci-theme-argon -18.06/htdocs/luci-static/argon/img/bg1.jpg https://github.com/HiJwm/MySettings/raw/main/BackGround/2.jpg
+wget -O ./feeds/mypackages/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://github.com/HiJwm/MySettings/raw/main/BackGround/2.jpg
 svn co https://github.com/xylz0928/luci-mod/trunk/feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons ./package/lucimod
 mv package/lucimod/* feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons/
 
@@ -38,9 +38,9 @@ sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWrt-$(date +%Y%m%d)
 sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
 
 ##修改autocore
-rm -rf ./package/lean/autocore
+#rm -rf ./package/lean/autocore
 #rm -rf ./feeds/xiangfeidexiaohuo/patch/autocore
-svn export https://github.com/HiJwm/MySettings/trunk/lean/myautocore feeds/xiangfeidexiaohuo/patch/autocore
+#svn export https://github.com/HiJwm/MySettings/trunk/lean/myautocore feeds/xiangfeidexiaohuo/patch/autocore
 ##修改概述内容 上述已经修改，本条无意义
 #wget -O ./feeds/xiangfeidexiaohuo/patch/autocore/files/x86/index.htm https://raw.githubusercontent.com/HiJwm/MySettings/main/lean/index.htm
 
