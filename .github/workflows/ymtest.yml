@@ -120,7 +120,7 @@ jobs:
       run: |
         mkdir Myfile
         for img in `find openwrt/bin/targets/*/*/* -name *.img.gz -or  -name *sysupgrade.bin`; do
-          mv -f $img Myfile
+          mv -f $img ./Myfile/ 2>/dev/null || true 
         done
         #mv -f openwrt/bin/targets/*/*/{*combined*,*sysupgrade*} ./Myfile/ 2>/dev/null || true
         #cp openwrt/.config  ./Myfile/${{matrix.target}}.config  #发布.config文件，删除#起效
