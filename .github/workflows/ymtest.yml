@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [Lean-5.15]
+        target: [k2test]
     steps:
     - name: Clone Repository
       uses: actions/checkout@v2
