@@ -20,7 +20,10 @@ svn export https://github.com/coolsnowwolf/packages/trunk/utils/libnetwork feeds
 sed -i 's/192.168.1.1/192.168.100.101/g' package/base-files/files/bin/config_generate
 
 ##删除版本中Lienol
-sed -i 's/Lienol/Master/' ./feeds/luci/luci.mk
+#sed -i 's/Lienol/Master/' ./feeds/luci/luci.mk
+##更改luci
+wget -O ./feeds/luci/luci.mk https://raw.githubusercontent.com/openwrt/luci/openwrt-22.03/luci.mk
+
 
 ##取消bootstrap为默认主题
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
