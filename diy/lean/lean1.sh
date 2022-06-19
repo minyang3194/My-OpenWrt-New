@@ -10,4 +10,4 @@ rm -rf ./package/lean/autocore
 
 sed -i "1isrc-git mypackages https://github.com/HiJwm/OP-Packages" feeds.conf.default
 #sed -i "2isrc-git passwall https://github.com/xiaorouji/openwrt-passwall" feeds.conf.default
-sed -i "3isrc-git helloworld https://github.com/fw876/helloworld\n" feeds.conf.default
+#sed -i "3isrc-git helloworld https://github.com/fw876/helloworld\n" feeds.conf.default
