@@ -38,7 +38,7 @@ sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWrt-$(date +%Y%m%d)
 sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
 
 ##修改autocore
-#rm -rf ./package/lean/autocore
+rm -rf ./package/lean/autocore
 #rm -rf ./feeds/mypackages/patch/autocore
 #svn export https://github.com/HiJwm/MySettings/trunk/lean/myautocore feeds/mypackages/patch/autocore
 ##修改概述内容 上述已经修改，本条无意义
