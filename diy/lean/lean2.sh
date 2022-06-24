@@ -44,12 +44,12 @@ rm -rf ./package/lean/autocore
 ##修改概述内容 上述已经修改，本条无意义
 #wget -O ./feeds/mypackages/patch/autocore/files/x86/index.htm https://raw.githubusercontent.com/HiJwm/MySettings/main/lean/index.htm
 
-##更换adguardhome为sirboy源 使用了我的插件包，下面无用。
-#rm -rf ./feeds/mypackages/luci-app-adguardhome
-#svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome ./package/luci-app-adguardhome
-#chmod -R 755 ./package/luci-app-adguardhome/*
-#svn co https://github.com/sirpdboy/sirpdboy-package/trunk/adguardhome ./package/adguardhome
-#chmod -R 755 ./package/adguardhome/*
+##更换adguardhome为sirboy源 
+rm -rf ./feeds/mypackages/luci-app-adguardhome
+svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome ./package/luci-app-adguardhome
+chmod -R 755 ./package/luci-app-adguardhome/*
+svn co https://github.com/sirpdboy/sirpdboy-package/trunk/adguardhome ./package/adguardhome
+chmod -R 755 ./package/adguardhome/*
 
 ##FQ全部调到VPN菜单
 sed -i 's/services/vpn/g' package/feeds/mypackages/luci-app-ssr-plus/luasrc/controller/*.lua
