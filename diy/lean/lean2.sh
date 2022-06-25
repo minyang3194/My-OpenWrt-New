@@ -29,6 +29,11 @@ svn co https://github.com/xylz0928/luci-mod/trunk/feeds/luci/modules/luci-base/h
 mv package/lucimod/* feeds/luci/modules/luci-base/htdocs/luci-static/resources/icons/
 
 
+##切换为samba4
+sed -i 's/luci-app-samba/luci-app-samba4/g' package/lean/autosamba/Makefile
+
+
+
 ##加入作者信息
 sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWrt '/g" package/lean/default-settings/files/zzz-default-settings
 #sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION='$(date +%Y%m%d) '/g" package/lean/default-settings/files/zzz-default-settings  #默认openwrt版本号目前R22.5.5 
