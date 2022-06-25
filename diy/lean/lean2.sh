@@ -45,11 +45,11 @@ rm -rf ./package/lean/autocore
 #wget -O ./feeds/mypackages/patch/autocore/files/x86/index.htm https://raw.githubusercontent.com/HiJwm/MySettings/main/lean/index.htm
 
 ##更换adguardhome为sirboy源 
-rm -rf ./feeds/mypackages/luci-app-adguardhome
-svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome ./package/luci-app-adguardhome
-chmod -R 755 ./package/luci-app-adguardhome/*
-svn co https://github.com/sirpdboy/sirpdboy-package/trunk/adguardhome ./package/adguardhome
-chmod -R 755 ./package/adguardhome/*
+#rm -rf ./feeds/mypackages/luci-app-adguardhome
+#svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome ./package/luci-app-adguardhome
+#chmod -R 755 ./package/luci-app-adguardhome/*
+#svn co https://github.com/sirpdboy/sirpdboy-package/trunk/adguardhome ./package/adguardhome
+#chmod -R 755 ./package/adguardhome/*
 
 ##FQ全部调到VPN菜单
 sed -i 's/services/vpn/g' package/feeds/mypackages/luci-app-ssr-plus/luasrc/controller/*.lua
