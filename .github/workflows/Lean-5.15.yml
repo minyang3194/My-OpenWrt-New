@@ -9,8 +9,8 @@ on:
 #    - cron: 3 17 * * 0,4
 
 # 点赞☆Star触发编译
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 jobs:
   Build_x86_515:
     runs-on: ubuntu-20.04
